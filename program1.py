@@ -4,17 +4,20 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-        pass
-
-
-
-
-
-
-
-    
-
-
-
-  
-
+        a={
+            ')': '(', 
+            '}': '{',
+            ']': '['
+        }
+        b=[]
+        
+        for i in s:
+            if i in a.values():
+                b.append(i)
+            elif i in a:
+                if b and b[-1]==a[i]:
+                    b.pop()
+                else:
+                    return False
+                
+        return not b
